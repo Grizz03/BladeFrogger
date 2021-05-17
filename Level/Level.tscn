@@ -1,35 +1,54 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level/Level.gd" type="Script" id=3]
 
 [node name="Level" type="Node"]
 script = ExtResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 510.06, 519.014 )
+[node name="StartPositions" type="Node" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2( 0, -122 )
-current = true
+[node name="CarStart1" type="Position2D" parent="StartPositions"]
+position = Vector2( 1211.65, 424.988 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="CarStart2" type="Position2D" parent="StartPositions"]
+position = Vector2( 1088.46, -298.087 )
+
+[node name="CarStart3" type="Position2D" parent="StartPositions"]
+position = Vector2( -68.8489, -119.218 )
+
+[node name="CarStart4" type="Position2D" parent="StartPositions"]
+position = Vector2( 1165.36, 50.8511 )
+
+[node name="CarStart5" type="Position2D" parent="StartPositions"]
+position = Vector2( -88.8714, 262.546 )
+
+[node name="CarTimers" type="Node" parent="."]
+
+[node name="Timer1" type="Timer" parent="CarTimers"]
+wait_time = 3.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="CarTimers"]
+wait_time = 2.5
+autostart = true
+
+[node name="Timer3" type="Timer" parent="CarTimers"]
+wait_time = 2.3
+autostart = true
+
+[node name="Timer4" type="Timer" parent="CarTimers"]
 wait_time = 2.329
 autostart = true
 
-[node name="CarStart1" type="Position2D" parent="."]
-position = Vector2( 1085.79, 392.026 )
+[node name="Timer5" type="Timer" parent="CarTimers"]
+wait_time = 2.329
+autostart = true
 
-[node name="CarStart2" type="Position2D" parent="."]
-position = Vector2( 1088.46, -298.087 )
+[node name="PlayerStartPos" type="Position2D" parent="."]
+position = Vector2( 558.869, 506.428 )
 
-[node name="CarStart3" type="Position2D" parent="."]
-position = Vector2( -68.8489, -119.218 )
-
-[node name="CarStart4" type="Position2D" parent="."]
-position = Vector2( 1084.45, 70.3291 )
-
-[node name="CarStart5" type="Position2D" parent="."]
-position = Vector2( -88.8714, 262.546 )
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="CarTimers/Timer1" to="." method="_on_Timer1_timeout"]
+[connection signal="timeout" from="CarTimers/Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="CarTimers/Timer3" to="." method="_on_Timer3_timeout"]
+[connection signal="timeout" from="CarTimers/Timer4" to="." method="_on_Timer4_timeout"]
+[connection signal="timeout" from="CarTimers/Timer5" to="." method="_on_Timer5_timeout"]
