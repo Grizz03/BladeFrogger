@@ -7,13 +7,29 @@
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 523.529, 520.137 )
+position = Vector2( 510.06, 519.014 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2( 0, -122 )
+current = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.329
 autostart = true
 
 [node name="CarStart1" type="Position2D" parent="."]
-position = Vector2( -57.5159, 329.622 )
+position = Vector2( 1085.79, 392.026 )
+
+[node name="CarStart2" type="Position2D" parent="."]
+position = Vector2( 1088.46, -298.087 )
+
+[node name="CarStart3" type="Position2D" parent="."]
+position = Vector2( -68.8489, -119.218 )
+
+[node name="CarStart4" type="Position2D" parent="."]
+position = Vector2( 1084.45, 70.3291 )
+
+[node name="CarStart5" type="Position2D" parent="."]
+position = Vector2( -88.8714, 262.546 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
