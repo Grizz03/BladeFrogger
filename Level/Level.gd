@@ -1,13 +1,10 @@
 extends Node
 
 const CAR = preload("res://Car/Car.tscn")
-const PLAYER = preload("res://Player/Player.tscn")
 
 func _ready():
 	# creating instance of player in current scene at START of game
-	var player = PLAYER.instance()
-	player.position = $'PlayerStartPos'.position
-	add_child(player)
+	pass
 	
 func car_spawn(start_pos):
 	# creates instance of CAR
@@ -16,8 +13,8 @@ func car_spawn(start_pos):
 	var car_start_node_name = 'StartPositions/CarStart' + str(start_pos)
 	# set position
 	car.position = get_node(car_start_node_name).position
+	$'YSort'.add_child(car)
 	# adds child to level scene
-	add_child(car)
 
 	# alter timers wait time
 	var timer_node_name = 'CarTimers/Timer' + str(start_pos)
@@ -34,3 +31,8 @@ func _on_Timer4_timeout(): car_spawn(4)
 # timer 5
 func _on_Timer5_timeout(): car_spawn(5)
 
+func _on_Timer6_timeout(): car_spawn(6)
+
+func _on_Timer7_timeout(): car_spawn(6)
+
+func _on_Timer8_timeout(): car_spawn(6)
