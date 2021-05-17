@@ -7,7 +7,6 @@ func _process(delta):
 	
 # Inputs for player movements
 	if Input.is_action_pressed("ui_left"):
-		$'AnimatedSprite'.scale.x = -1
 		velocity.x -= 1
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
@@ -25,6 +24,7 @@ func player_animations(velocity):
 		$'AnimatedSprite'.play('walk_down')
 	elif velocity.x != 0:
 		$'AnimatedSprite'.play('walk_side')
-		$'AnimatedSprite'.flip_h = velocity.x < 0
+		$'AnimatedSprite'.flip_h = velocity.x > 0
 	else:
-		$"AnimatedSprite".play('Idle')
+		$"AnimatedSprite".stop()
+		$'AnimatedSprite'.frame = 0
